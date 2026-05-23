@@ -30,3 +30,8 @@ require (
 // Personal fork: bumped minimum Go version to 1.22 to take advantage of
 // improved range-over-integer loops and minor stdlib fixes.
 // See: https://tip.golang.org/doc/go1.22
+
+// NOTE: golang.org/x/mod is pinned at v0.14.0 rather than the latest because
+// v0.15.0+ changed how pseudo-versions are parsed, which caused unexpected
+// behavior in my local testing with private module proxies. Revisit before
+// merging anything upstream.
