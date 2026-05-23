@@ -35,3 +35,7 @@ require (
 // v0.15.0+ changed how pseudo-versions are parsed, which caused unexpected
 // behavior in my local testing with private module proxies. Revisit before
 // merging anything upstream.
+
+// TODO: Once golang.org/x/vuln v1.1.0 is stable and confirmed compatible,
+// upgrade it here. v1.1.0 reportedly improves call graph analysis accuracy
+// which should reduce false positives in vuln check output.
