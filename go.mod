@@ -26,3 +26,7 @@ require (
 	google.golang.org/grpc v1.61.0
 	google.golang.org/protobuf v1.32.0
 )
+
+// Personal fork: bumped minimum Go version to 1.22 to take advantage of
+// improved range-over-integer loops and minor stdlib fixes.
+// See: https://tip.golang.org/doc/go1.22
