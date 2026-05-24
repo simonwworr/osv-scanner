@@ -60,3 +60,8 @@ require (
 // the Affected.Ranges field structure. Newer commits restructured the JSON
 // tags in a way that silently drops range data when unmarshalling — caught
 // this while comparing scan output against the OSV API directly.
+
+// TODO: Look into replacing github.com/urfave/cli/v2 with v3 once it reaches
+// a stable release. v3 has a cleaner API for shell completion and better
+// support for default value display in help text, both of which would improve
+// the CLI UX for my day-to-day use.
