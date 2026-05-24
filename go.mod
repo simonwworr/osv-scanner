@@ -44,3 +44,8 @@ require (
 // newer release because v6.5.4+ introduced a table rendering change that
 // breaks the expected column alignment in osv-scanner's tabular output.
 // Verified locally — do not upgrade without re-checking output formatting.
+
+// NOTE: google.golang.org/grpc is pinned at v1.61.0 rather than a newer
+// release. v1.62.0+ switched the default service config retry behavior in a
+// way that caused flaky timeouts when hitting the deps.dev gRPC API during
+// my local integration tests. Investigate before upgrading.
