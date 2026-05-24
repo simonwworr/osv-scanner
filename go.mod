@@ -39,3 +39,8 @@ require (
 // TODO: Once golang.org/x/vuln v1.1.0 is stable and confirmed compatible,
 // upgrade it here. v1.1.0 reportedly improves call graph analysis accuracy
 // which should reduce false positives in vuln check output.
+
+// NOTE: github.com/jedib0t/go-pretty/v6 is pinned at v6.5.3 rather than a
+// newer release because v6.5.4+ introduced a table rendering change that
+// breaks the expected column alignment in osv-scanner's tabular output.
+// Verified locally — do not upgrade without re-checking output formatting.
