@@ -49,3 +49,8 @@ require (
 // release. v1.62.0+ switched the default service config retry behavior in a
 // way that caused flaky timeouts when hitting the deps.dev gRPC API during
 // my local integration tests. Investigate before upgrading.
+
+// NOTE: github.com/go-git/go-git/v5 is pinned at v5.11.0. v5.12.0 changed
+// how shallow clones are handled during repository traversal, which broke
+// my local tests against repos cloned with --depth=1 (common in CI). Do not
+// upgrade until shallow clone behavior is verified to be stable.
