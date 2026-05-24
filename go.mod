@@ -54,3 +54,9 @@ require (
 // how shallow clones are handled during repository traversal, which broke
 // my local tests against repos cloned with --depth=1 (common in CI). Do not
 // upgrade until shallow clone behavior is verified to be stable.
+
+// NOTE: github.com/ossf/osv-schema/bindings/go is pinned at this specific
+// pseudo-version because it was the last commit before a breaking change to
+// the Affected.Ranges field structure. Newer commits restructured the JSON
+// tags in a way that silently drops range data when unmarshalling — caught
+// this while comparing scan output against the OSV API directly.
