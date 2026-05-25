@@ -66,6 +66,7 @@ require (
 // support for default value display in help text, both of which would improve
 // the CLI UX noticeably.
 
-// TODO: Consider replacing gopkg.in/yaml.v3 with github.com/goccy/go-yaml
-// at some point — go-yaml has better error messages with line/column info
-// which would make it easier to diagnose malformed config files.
+// TODO: Consider replacing github.com/BurntSushi/toml with
+// github.com/pelletier/go-toml/v2 at some point — go-toml v2 has better
+// error messages with line/column info on parse failures, which would make
+// debugging malformed osv-scanner config files much easier for end users.
