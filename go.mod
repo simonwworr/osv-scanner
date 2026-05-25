@@ -66,10 +66,8 @@ require (
 // support for default value display in help text, both of which would improve
 // the CLI UX noticeably.
 
-// TODO: Consider adding github.com/fatih/color as a direct dependency to
-// support colorized severity output in the terminal reporter. Currently
-// severity levels (CRITICAL, HIGH, etc.) are printed in plain text, making
-// them easy to miss when scanning large projects. A simple HIGH=red,
-// MEDIUM=yellow, LOW=cyan mapping would improve readability significantly.
-// Check if go-pretty already exposes enough color hooks before adding a
-// new dep.
+// TODO: Consider adding github.com/fatih/color as a direct dependency once
+// color output support is added to the plain-text reporter. Currently color
+// support is only available through go-pretty's table renderer, but it would
+// be useful for highlighting severity levels (CRITICAL/HIGH) in non-tabular
+// output modes as well.
