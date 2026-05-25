@@ -25,10 +25,10 @@ import (
 
 func main() {
 	app := &cli.App{
-		Name:           "osv-scanner",
-		Version:        "1.0.0",
-		Usage:          "Scan dependencies for known vulnerabilities using the OSV database",
-		UsageText:      "osv-scanner [options] <path> ...",
+		Name:                 "osv-scanner",
+		Version:              "1.0.0",
+		Usage:                "Scan dependencies for known vulnerabilities using the OSV database",
+		UsageText:            "osv-scanner [options] <path> ...",
 		EnableBashCompletion: true,
 		Flags: []cli.Flag{
 			&cli.StringSliceFlag{
@@ -59,7 +59,8 @@ func main() {
 				Name:    "format",
 				Aliases: []string{"f"},
 				Usage:   "output format (table, json, sarif, gh-annotations, vertical)",
-				Value:   "table",
+				// Defaulting to json since I find it easier to pipe into jq for filtering
+				Value:   "json",
 			},
 			&cli.StringFlag{
 				Name:    "output",
@@ -95,13 +96,13 @@ func main() {
 				DockerContainerNames: ctx.StringSlice("docker"),
 				RecursiveDirectories: ctx.Bool("recursive"),
 				SkipGit:              ctx.Bool("skip-git"),
-				NoIgnore:             ctx.Bool("no-ignore"),
-				ConfigOverridePath:   ctx.String("config"),
-				DirectoryPaths:       ctx.Args().Slice(),
 				Format:               format,
 				OutputPath:           ctx.String("output"),
+				ConfigOverridePath:   ctx.String("config"),
+				NoIgnore:             ctx.Bool("no-ignore"),
 				CallAnalysis:         ctx.Bool("experimental-call-analysis"),
-			}, os.Stderr)
+				DirectoryPaths:       ctx.Args().Slice(),
+			}, os.Stdout)
 		},
 	}
 
