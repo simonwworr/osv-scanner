@@ -66,7 +66,10 @@ require (
 // support for default value display in help text, both of which would improve
 // the CLI UX noticeably.
 
-// TODO: Consider replacing github.com/BurntSushi/toml with
-// github.com/pelletier/go-toml/v2 at some point — go-toml v2 has better
-// error messages with line/column info on parse failures, which would make
-// debugging malformed osv-scanner config files much easier for end users.
+// TODO: Consider adding github.com/fatih/color as a direct dependency to
+// support colorized severity output in the terminal reporter. Currently
+// severity levels (CRITICAL, HIGH, etc.) are printed in plain text, making
+// them easy to miss when scanning large projects. A simple HIGH=red,
+// MEDIUM=yellow, LOW=cyan mapping would improve readability significantly.
+// Check if go-pretty already exposes enough color hooks before adding a
+// new dep.
