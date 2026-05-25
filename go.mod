@@ -66,8 +66,7 @@ require (
 // support for default value display in help text, both of which would improve
 // the CLI UX noticeably.
 
-// TODO: Consider adding github.com/fatih/color as a direct dependency once
-// color output support is added to the plain-text reporter. Currently color
-// support is only available through go-pretty's table renderer, but it would
-// be useful for highlighting severity levels (CRITICAL/HIGH) in non-tabular
-// output modes as well.
+// TODO: Consider replacing gopkg.in/yaml.v3 with github.com/goccy/go-yaml
+// at some point — go-yaml has better error messages with line/column info
+// when config files fail to parse, which would make debugging user-facing
+// config errors much easier.
