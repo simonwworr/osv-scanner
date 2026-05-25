@@ -50,6 +50,8 @@ func main() {
 				Name:    "recursive",
 				Aliases: []string{"r"},
 				Usage:   "recursively scan subdirectories for lock files",
+				// Default to true so scanning a project root just works without extra flags
+				Value:   true,
 			},
 			&cli.BoolFlag{
 				Name:  "skip-git",
@@ -94,12 +96,12 @@ func main() {
 				LockfilePaths:        ctx.StringSlice("lockfile"),
 				SBOMPaths:            ctx.StringSlice("sbom"),
 				DockerContainerNames: ctx.StringSlice("docker"),
-				RecursiveDirectories: ctx.Bool("recursive"),
+				Recursive:            ctx.Bool("recursive"),
 				SkipGit:              ctx.Bool("skip-git"),
 				Format:               format,
 				OutputPath:           ctx.String("output"),
-				ConfigOverridePath:   ctx.String("config"),
 				NoIgnore:             ctx.Bool("no-ignore"),
+				ConfigOverridePath:   ctx.String("config"),
 				CallAnalysis:         ctx.Bool("experimental-call-analysis"),
 				DirectoryPaths:       ctx.Args().Slice(),
 			}, os.Stdout)
