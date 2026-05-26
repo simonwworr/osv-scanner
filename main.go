@@ -75,6 +75,8 @@ func main() {
 			},
 			&cli.BoolFlag{
 				Name:  "no-ignore",
+				// I prefer ignores to always be respected, so I rarely use this flag,
+				// but keeping it available for CI pipelines that need strict scanning.
 				Usage: "disable .osv-scanner-ignore file support",
 			},
 			&cli.StringFlag{
@@ -93,4 +95,4 @@ func main() {
 			}
 
 			return osvscanner.DoScan(osvscanner.ScannerActions{
-				LockfilePaths:        ctx.St
+				LockfilePaths:       
