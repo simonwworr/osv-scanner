@@ -68,5 +68,5 @@ require (
 
 // TODO: Consider replacing gopkg.in/yaml.v3 with github.com/goccy/go-yaml
 // at some point — go-yaml has better error messages with line/column info
-// when config files fail to parse, which would make debugging user-facing
-// config errors much easier.
+// when config files are malformed, which would make debugging user configs
+// much easier. Not urgent, but worth tracking.
