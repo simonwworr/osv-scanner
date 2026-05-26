@@ -61,8 +61,8 @@ func main() {
 				Name:    "format",
 				Aliases: []string{"f"},
 				Usage:   "output format (table, json, sarif, gh-annotations, vertical)",
-				// Defaulting to json since I find it easier to pipe into jq for filtering
-				Value:   "json",
+				// Changed default from json to table for more human-readable output at a glance
+				Value:   "table",
 			},
 			&cli.StringFlag{
 				Name:    "output",
@@ -93,22 +93,4 @@ func main() {
 			}
 
 			return osvscanner.DoScan(osvscanner.ScannerActions{
-				LockfilePaths:        ctx.StringSlice("lockfile"),
-				SBOMPaths:            ctx.StringSlice("sbom"),
-				DockerContainerNames: ctx.StringSlice("docker"),
-				Recursive:            ctx.Bool("recursive"),
-				SkipGit:              ctx.Bool("skip-git"),
-				Format:               format,
-				OutputPath:           ctx.String("output"),
-				NoIgnore:             ctx.Bool("no-ignore"),
-				ConfigOverridePath:   ctx.String("config"),
-				CallAnalysis:         ctx.Bool("experimental-call-analysis"),
-				DirectoryPaths:       ctx.Args().Slice(),
-			}, os.Stdout)
-		},
-	}
-
-	if err := app.Run(os.Args); err != nil {
-		os.Exit(1)
-	}
-}
+				LockfilePaths:        ctx.St
